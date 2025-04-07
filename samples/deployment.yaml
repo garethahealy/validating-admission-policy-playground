@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test
+spec:
+  selector:
+    matchLabels:
+      app: "test"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: "test"
+        sidecar.istio.io/inject: "true"
+    spec:
+      containers:
+        - name: container
+          image: >-
+            registry.k8s.io/pause:latest
