@@ -25,6 +25,8 @@ jobs:
 
       - name: Install kyverno
         uses: kyverno/action-install-cli@v0.2.0
+        with:
+          release: 'main'
 
       - name: Test Policy - pass
         run: kyverno apply samples/ValidatingAdmissionPolicy.yaml --resource samples/deployment.yaml --resource samples/deployment-fail.yaml
