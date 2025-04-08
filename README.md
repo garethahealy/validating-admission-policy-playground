@@ -1,6 +1,6 @@
 # validating-admission-policy-playground
 
-[validating-admission-policy](https://kubernetes.io/docs/reference/access-authn-authz/validating-admission-policy/)
+Playground looking into [ValidatingAdmissionPolicy (VAP)](https://kubernetes.io/docs/reference/access-authn-authz/validating-admission-policy/).
 
 ## Run the Example
 

@@ -45,3 +45,16 @@ jobs:
         run: |
           kubectl create -f samples/ValidatingAdmissionPolicy.yaml
           kubectl create -f samples/ValidatingAdmissionPolicyBinding.yaml
+
+      - name: Enable policy for default namespace
+        run: kubectl label namespace default vap=true
+
+      - name: Create Deployments - pass
+        run: |
+          kubectl create -f samples/deployment.yaml -n default
+          kubectl create -f samples/deployment-no-label.yaml -n default
+
+      - name: Create Deployments - fail
+        continue-on-error: true
+        run: |
+          kubectl create -f samples/deployment-fail.yaml -n default
